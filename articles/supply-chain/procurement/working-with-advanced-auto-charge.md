@@ -131,13 +131,14 @@ In the case where a manipulation of the header charges automatically added from 
 
 This action will restore the auto charges on the sales order header automatically added from auto charges to the values from the auto charge setup. Any manually added charges to the sales order header to will not be affected by this action. This action will not restore any order line charges. 
    
-         > [!NOTE]
-        > It is possible to have overlaps both position and sequence when deleting charges applied from auto charges, manually adding charges, followed by restoring the charges through the **Header auto charges** action. In such a case it will be the rec id of the charge record that determines the position when calculating the value base. It is recommended to avoid such scenarioes, as it will not be transparent to the user how the calculation of the value base is performed. 
+> [!NOTE]
+        > It is possible to have overlaps both position and sequence when deleting charges applied from auto charges, manually adding charges, followed by restoring the charges through the **Header auto charges** action. In such a case it will be the rec id of the charge record that determines the position when calculating the value base. It is recommended to avoid such scenarioes, as it will not be transparent to the user how the calculation of the value base is performed.
+
  > [!NOTE]
         > It is possible to set a manually added header charge to compound. This will however have no effect, as compounding will only be performed for header charges added automatically from auto charges. 
 
-  
 ## Working with value base for header charges parameter setting
+When calculation the absolute monetary charge amount resulting from a header charge of category type percentage, the calculation is performed on a value base. The value base can consist of the net amount accross all order lines or the net amoount accross all order lines including line changes, both with/without sales taxes. See below for examples of how the value base impacts the calculation. 
 
 Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
 1. Open the **Prices** tab.
