@@ -3,8 +3,8 @@
 
 title: Automatic allocation of charges
 description: The charges feature in Microsoft Dynamics 365 Supply Chain Management helps you automatically allocate charges to purchase orders or sales orders.
-author: GalynaFedorova
-ms.date: 09/30/2021
+author: Henrik Andersen
+ms.date: 10/04/2023
 ms.topic: article
 ms.prod: 
 ms.technology: 
@@ -19,41 +19,41 @@ ms.reviewer: kamaybac
 # ms.custom: [used by loc for articles migrated from the wiki]
 ms.search.region: Global
 # ms.search.industry: [leave blank for most, retail, public sector]
-ms.author: gfedorova
+ms.author: henrikan
 ms.search.validFrom: 2020-10-01
 ms.dyn365.ops.version: 10.0.15
 ---
 
-# Automatic allocation of charges
+# Automatic application of charges
 
 [!include [banner](../includes/banner.md)]
 
-Based on the customer that you're working with or the item that you're selling, you might want to apply specific additional charges. The *charges* feature in Microsoft Dynamics 365 Supply Chain Management helps you automatically allocate charges to purchase orders or sales orders.
+Based on the customer that you're working with or the item that you're selling, you might want to apply specific additional charges. The *charges* feature in Microsoft Dynamics 365 Supply Chain Management helps you automatically apply charges to purchase orders or sales orders.
 
 Automatic charges, or auto charges, are automatically applied when you create a sales order or a purchase order. You can define auto charges for specific vendors, customers, groups of vendors, or items. You can also define auto charges that apply to all vendors, customers, or items.
 
 ## Set up parameters
 
-The **Procurement and sourcing parameters** page has a few settings that are especially relevant when you want to allocate charges automatically. To complete this setup, follow these steps.
+The **Procurement and sourcing parameters** page has a few settings that are especially relevant when you want to apply charges automatically. To complete this setup, follow these steps.
 
 1. Go to **Procurement and sourcing \> Setup \> Procurement and sourcing parameters**.
 1. Open the **Prices** tab.
 1. On the **Prices** FastTab, make the following settings:
-    - **Find auto charges for header** – Specifies whether charges should automatically be allocated for purchase order headers. Set this to *Yes* to use automatic allocation of charges.
-    - **Find auto charges for line** – Specifies whether charges should automatically be allocated for purchase order lines. Set this to *Yes* to use automatic allocation of charges.
+    - **Find auto charges for header** – Specifies whether charges should automatically be applied for purchase order headers. Set this to *Yes* to use automatic application of charges.
+    - **Find auto charges for line** – Specifies whether charges should automatically be applied for purchase order lines. Set this to *Yes* to use automatic application of charges.
 
-The **Sales and marketing parameters** page has a few settings that are especially relevant when you want to allocate charges automatically. To complete this setup, follow these steps.
+The **Sales and marketing parameters** page has a few settings that are especially relevant when you want to apply charges automatically. To complete this setup, follow these steps.
 
 1. Go to **Sales and marketing \> Setup \> Sales and marketing parameters**.
 1. Open the **Prices** tab.
 1. On the **Prices** FastTab, make the following settings:
-    - **Find auto charges for header** – Specifies whether charges should automatically be allocated for sales quotation and sales order headers. Set this to *Yes* to use automatic allocation of charges.
-    - **Find auto charges for line** – Specifies whether charges should automatically be allocated forsales quotation and sales order lines. Set this to *Yes* to use automatic allocation of charges.
+    - **Find auto charges for header** – Specifies whether charges should automatically be applied for sales quotation and sales order headers. Set this to *Yes* to use automatic application of charges.
+    - **Find auto charges for line** – Specifies whether charges should automatically be applied forsales quotation and sales order lines. Set this to *Yes* to use automatic application of charges.
 
 
 ## Set up charges codes
 
-To allocate charges, you must first define charges codes.
+To apply charges, you must first define charges codes.
 
 1. Follow one of these steps:
 
@@ -82,7 +82,7 @@ To allocate charges, you must first define charges codes.
 
 ## Create charge groups
 
-Charge groups automatically allocate specific charges to a group of customers or vendors. The following subsections describe how to create and assign these charge groups.
+Charge groups automatically apply specific charges to a group of customers or vendors. The following subsections describe how to create and assign these charge groups.
 
 ### Charge groups for purchase orders
 
@@ -175,10 +175,8 @@ After your charges codes are set up, follow these steps to define the auto charg
 
 1. **For sales orders only:** If you want to calculate tiered charges, see [Tiered charges on sales orders](/dynamicsax-2012/appuser-itpro/about-tiered-charges-on-sales-orders) for information.
 
-**Hertil Henrikan**
-> [!NOTE] Opdater med hvilke features some skal være enabled!!
-        > To turn on the functionality for validating charges for purchase orders, go to **Accounts payable \> Setup \> Accounts payable parameters**. On the **Invoice validation** FastTab, in the **Invoice validation** section, set the **Enable invoice matching validation** option to *Yes*.
-
+> [!NOTE] 
+        > To turn on the functionality for working working with sequence and compound on header level charges, you need to enable the feature 'Sequence and compound for customer charges' in feature management. For more information see [link to new page for Sequence and compound]. To turn on the functionality for working with line level charges category types specific unit and specific unit match, you need to enable the feature 'Unit of measure for line level charges' in feature management. For more information see [link to new page for Unit of measure for line level charges].
 
 ## Allocate charges from the header to a line
 
