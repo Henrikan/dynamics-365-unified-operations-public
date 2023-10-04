@@ -135,11 +135,59 @@ This action will restore the auto charges on the sales order header automaticall
         > It is possible to have overlaps both position and sequence when deleting charges applied from auto charges, manually adding charges, followed by restoring the charges through the **Header auto charges** action. In such a case it will be the rec id of the charge record that determines the position when calculating the value base. It is recommended to avoid such scenarioes, as it will not be transparent to the user how the calculation of the value base is performed. 
  > [!NOTE]
         > It is possible to set a manually added header charge to compound. This will however have no effect, as compounding will only be performed for header charges added automatically from auto charges. 
-        
 
-   **STOP**
+  
+## Working with value base for header charges parameter setting
+
+Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
+1. Open the **Prices** tab.
+2. On the **Charges** fasttab, make the following settings:
+    - **value base for header charges** – 	Select the option "Sum of line net amounts only" to calculate charges based on the sum of line amounts only. 
+
+With the auto charge setup done previously, do the following:
+3. Go to **Sales and Marketing \>  \> Sales orders \> All sales orders**.
+4. On the Action Pane, select **New** to create a new sales order
+
+Create the sales order for customer US-004, or any customer using USD as currency. 
+Create a sales line. Ensure that the line net amount is 100 USD
+On the sales order line do the following:
+5. Line ribbon **Financials**, **maintain charges**
+6. Select **New** to add a line charge with the following values:
+  - **Charge Code** – 	Freight
+  - **Category** - Fixed
+  - **charges value** - 10
+  - **Currency** - USD
+7. Select **Save**
+8. On header action pane, tab **Sales order**, select **Totals**
+
+Notice the amount for **Total Charges**. It contains the following: 10 USD (line charge fixed) + 100 USD (header charge fixed) + 4 USD (header charge percentage and compound (2% of 200: 100(line amunt)+100(header charge with lower position) = 114 USD
+
+Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
+9. Open the **Prices** tab.
+10. On the **Charges** fasttab, make the following settings:
+    - **value base for header charges** – 	Change the option from "Sum of line net amounts only" to "Sum including charge amounts".
+
+11. On the same sales order, on header action pane, tab **Sales order**, select **Totals**
+
+Notice the amount for **Total Charges** has changed. It contains the following: 10 USD (line charge fixed) + 100 USD (header charge fixed) + 4.20 USD (header charge percentage and compound (2% of 210: 100(line amunt)+100(header charge with lower position)+10(line charge) = 114.20 USD
+
+ > [!NOTE]
+        > With **value base for header charges** set to "Sum including charge amounts", it is possible to have selective sales taxes included in the calculation of the value base. The sales taxes included in the value base used for calculating a percentage based header charge, is setup on the header level auto charge line setup under **include taxes in value base**. **Value base for header charges** set to "Sum including charge amounts# is is applicable for header charges of category percentage with/without compound.  
+
+**Hertil Henrik **
+
+## Working with Re-search on posting parameter setting
+
+## Working with Combine charges on combined invoices parameter setting
 
 
+   **Hertil STOP**
+
+Herefter limitations
+
+Herefter add specific unit  and specific unit match i ny page
+
+   
 1. The **Posting** FastTab includes **Debit** and **Credit** sections. Set the following fields, depending on the ledger that you want to post the charges to:
 
     - **Type** – Select the type of account that you're posting to (*Ledger*, *Customer*, or *Item*).
