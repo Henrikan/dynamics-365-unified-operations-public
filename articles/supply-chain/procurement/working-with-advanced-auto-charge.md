@@ -317,6 +317,15 @@ Feature “Sequence and compound for customer charges” works in conjunction wi
 
 ## Limitations
 
+Intercompany sales order sequence and compound auto charge application 
+Feature “Sequence and compound for customer charges” is only supported for sales order and sales quotation. Not supporting purchase order has implications in intercompany scenarios, since the value base upon which to calculate header level charges with category percent will be different and the concept of compounding charges is not supported for purchase order either. In order not to block intercompany scenarios when feature “Sequence and compound for customer charges” is enabled, header charges for any sales order which fulfils an intercompany purchase order (also known as an intercompany sales order) will be applied and calculated as if the feature “Sequence and compound for customer charges” were disabled. This means, that whether feature “Sequence and compound for customer charges” takes effect once enabled is contextual: In Intercompany scenarios, it does not take effect, in non-intercompany it takes effect. This allows intercompany scenarios to flow where the calculation logic for header charges applied will be the one used in purchasing. 
+
+
+Prorate and summary update
+A header charge can be set to prorate. As part of this feature is the ability to re-search and recalculate header charges from auto charges upon posting in a summary update scenario, to prevent the duplication of charges from auto charges. The ability to prevent the duplication of charges from auto charges in a summary update scenario when the header charge is prorate is not supported. That means that a header charge (auto charge) set to prorate that is applied in a summary update scenario, will be re-searched and re-calculated based on the individual sales orders going into the summary update (the single invoice) always. 
+Tiered charge and summary update
+A header charge can be set to use amount tiers from/to. The tiers are evaluated based on the net amount for a sales order and the resulting header charge is applied to the sales order. Tiered charges, with (feature Preview) sequence and compound charges enabled, work in the following manner: The tiers (from/to amounts) are assessed against the net amount for a sales order. If the net amount is within a tier, and the tier results in a percentage charge, then charge will be calculated from the value base introduced with the (Preview) sequence and compound charges feature. 
+For summary update, such as summary invoice, and when the system is configured to re-search auto charges during invoicing, then the tiers (the from/to amount in the auto charge definition) are not assessed against the net amount across all order lines in the summary invoice. The tiers (the form/to) are assessed against the net amount for the first sales order included in the summary update only. 
 
    
 
