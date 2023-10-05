@@ -39,9 +39,9 @@ In order to leverage the ability to compound header charges, enable the feature 
 
 Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
 1. Open the **Prices** tab.
-1. On the **Prices** FastTab, make the following settings:
+2. On the **Prices** FastTab, make the following settings:
     - **Find auto charges for header** – Set to 'Yes'
-1. On the **Charges** fasttab, make the following settings:
+3. On the **Charges** fasttab, make the following settings:
     - **Re-search on posting** – Specify whether header auto charges on sales orders and sales quotations should be re-searched when documents are confirmed or posted. Other manually added charges won't be affected during the re-search process. Set this to 'Yes' to ensure that the header charges setup in auto charges are always applied. 
     - **combine charges on combined invoices** – The parameter controls how auto charges are calculated when multiple sales orders are combined into a single invoice using the "summary update" function. Set this to "Yes" to first calculate the grand total of all sales orders included in the combined invoice and then apply the auto charge to that total. Set this to "No" to calculate a separate auto charge for each sales order included in the combined invoice. 
     - **value base for header charges** – 	This parameter determines the value base for calculating percentage-based header charges. You can select the option "Sum of line net amounts only" to calculate charges based on the sum of line amounts only. Alternatively, choose the option "Sum including charge amounts" to calculate charges based on the sum of line amounts, including line charges. 
@@ -163,12 +163,12 @@ On the sales order line do the following:
 
 Notice the amount for **Total Charges**. It contains the following: 10 USD (line charge fixed) + 100 USD (header charge fixed) + 4 USD (header charge percentage and compound (2% of 200: 100(line amunt)+100(header charge with lower position) = 114 USD
 
-Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
-9. Open the **Prices** tab.
-10. On the **Charges** fasttab, make the following settings:
+9. Go to **Accounts receivable \> Setup \> Accounts receivable parameters**.
+10. Open the **Prices** tab.
+11. On the **Charges** fasttab, make the following settings:
     - **value base for header charges** – 	Change the option from "Sum of line net amounts only" to "Sum including charge amounts".
 
-11. On the same sales order, on header action pane, tab **Sales order**, select **Totals**
+12. On the same sales order, on header action pane, tab **Sales order**, select **Totals**
 
 Notice the amount for **Total Charges** has changed. It contains the following: 10 USD (line charge fixed) + 100 USD (header charge fixed) + 4.20 USD (header charge percentage and compound (2% of 210: 100(line amunt)+100(header charge with lower position)+10(line charge) = 114.20 USD
 
